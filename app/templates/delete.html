@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Blog Post</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: cyan; /* Gradient background */
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+        .header {
+            background-color: #4a4e69; /* Dark header */
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            background-color: #b9a41b; /* Button color */
+            color: white;
+            font-weight: 600;
+        }
+        .btn:hover {
+            background-color: #002480; /* Darker button on hover */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #060606;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="header">
+            <h2>Delete Blog Post</h2>
+        </div>
+        <div class="mt-4 text-center">
+            <p>Are you sure you want to delete "{{ product.name }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn">Yes, Delete</button>
+            </form>
+            <br>
+            <a href="{% url 'product_list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; @Abinash_Suara 2024 Blog Website. All rights reserved.</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

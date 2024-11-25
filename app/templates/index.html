@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: cyan; /* Gradient background */
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+        .header {
+            background-color: #4a4e69; /* Dark header */
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            border: none; /* Remove border */
+            transition: transform 0.2s; /* Smooth scaling effect */
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Card shadow */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+        .card-title {
+            color: #22223b; /* Darker title color */
+            font-weight: 700; /* Bold title */
+        }
+        .card-text {
+            color: #4a4e69; /* Slightly lighter text color */
+        }
+        .btn {
+            background-color: #b9a41b; /* Button color */
+            color: white;
+            font-weight: 600;
+        }
+        .btn:hover {
+            background-color: #002480; /* Darker button on hover */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #060606;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="header">
+            <h1>Today's New Blogs</h1>
+        </div>
+        <div class="row mt-4">
+            {% for product in products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a href="{% url 'product_detail' product.pk %}">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.short_description }}</p>
+                            <a href="{% url 'edit_product' product.pk %}" class="btn">Edit</a>
+                            <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">Delete</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Blog Website. All rights reserved.</p>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery scripts here (if needed) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

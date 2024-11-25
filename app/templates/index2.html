@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.name }} - Blog Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: cyan; /* Gradient background */
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+        }
+        .header {
+            background-color: #4a4e69; /* Dark header */
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #b9a41b; /* Button color */
+            color: white;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #002480; /* Darker button on hover */
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #060606;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ product.name }} - Blog</h1>
+        </div>
+        
+        <div class="text-center mb-4">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" class="img-fluid">
+        </div>
+        
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+
+        <div class="mt-4">
+            <a href="{% url 'edit_product' product.pk %}" class="btn">Edit</a>
+            <a href="{% url 'delete_product' product.pk %}" class="btn btn-danger">Delete</a>
+        </div>
+
+        <a href="{% url 'product_list' %}" class="btn btn-secondary mt-4">Back to Blogs Home Page</a>
+    </div>
+    
+    <div class="footer">
+        <p>&copy;  2024 Blog Website. All rights reserved.</p>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery scripts here (if needed) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
